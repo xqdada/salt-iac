@@ -1,0 +1,6 @@
+httpd-dirs:  
+  - mnt/hdisk/opt/httpd_worker
+  - /mnt/hdisk/http_logs 
+  - /opt/httpd/logs/
+  - /opt/httpd/htdocs/upload 
+  - /mnt/hdisk/httpupload/

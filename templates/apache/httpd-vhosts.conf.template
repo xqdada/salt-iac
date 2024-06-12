@@ -1,0 +1,63 @@
+# Virtual Hosts
+#
+# Required modules: mod_log_config
+
+# If you want to maintain multiple domains/hostnames on your
+# machine you can setup VirtualHost containers for them. Most configurations
+# use only name-based virtual hosts so the server doesn't need to worry about
+# IP addresses. This is indicated by the asterisks in the directives below.
+#
+# Please see the documentation at 
+# <URL:http://httpd.apache.org/docs/2.4/vhosts/>
+# for further details before you try to setup virtual hosts.
+#
+# You may use the command line option '-S' to verify your virtual host
+# configuration.
+
+#
+# VirtualHost example:
+# Almost any Apache directive may go into a VirtualHost container.
+# The first VirtualHost section is used for all requests that do not
+# match a ServerName or ServerAlias in any <VirtualHost> block.
+#
+<VirtualHost *>
+    <Directory "/opt/httpd/htdocs">
+         Options -Indexes +FollowSymLinks
+         Allow from all
+         AllowOverride All
+         Require all granted
+    </Directory>
+    <Directory /opt/httpd/htdocs/upload>
+        php_admin_flag engine off
+        <FilesMatch (.*)\.php(.*)> 
+            Order allow,deny                
+            Deny from all
+        </FilesMatch>   
+    </Directory>
+    <Directory /opt/httpd/htdocs/netlogs>
+        php_admin_flag engine off
+        <FilesMatch (.*)\.php(.*)> 
+            Order allow,deny                
+            Deny from all
+        </FilesMatch>   
+    </Directory>
+    ServerAdmin admin@seetong.com
+    DocumentRoot "/opt/httpd/htdocs"
+    # 设置默认值，防止返回None，服务无法启动
+    ServerName {{ pillar.get('SERVER_NAME') or server_name }}
+    ServerAlias {{ pillar.get('SERVER_NAME') or server_alias }}
+    {%- if pillar.get('SERVER_NAME') -%}
+        {% set error_log= 'logs' + '/' + pillar.get('SERVER_NAME','') + '-error_log' %}
+    {% endif %}
+    ErrorLog {{ error_log }}
+    #CustomLog "logs/{{ pillar.get('SERVER_NAME') }}-access_log" apache_log_jsion 
+    #CustomLog "|/mnt/hdisk/opt/httpd_worker/bin/rotatelogs -l logs/{{ pillar.get('SERVER_NAME') }}-access_%F.log 86400" apache_log_jsion
+    RewriteEngine on
+    RewriteRule ^/help/withdrawuseragree.html$    https://h5.seetong.com/user-help/account/withdrawuseragree?lang=zh-CN
+    RewriteRule ^/help/withdrawuseragree_(.*).html$   https://h5.seetong.com/user-help/account/withdrawuseragree?lang=$1
+    RewriteRule ^/help/accountAppeal.html https://h5.seetong.com/user-help/account/appeal?lang=zh-CN
+    RewriteRule ^/help/accountAppeal_(.*).html https://h5-test.seetong.com/user-help/account/appeal?lang=$1
+</VirtualHost>
+
+
+

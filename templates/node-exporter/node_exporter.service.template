@@ -1,0 +1,17 @@
+[Unit]
+Description=Node_exporter
+Documentation=https://github.com/prometheus/node_exporter/
+After=network.target
+
+[Service]
+WorkingDirectory=/usr/local/node_exporter/
+ExecStart=/usr/local/node_exporter/node_exporter
+ExecReload=/bin/kill -HUP $MAINPID
+ExecStop=/bin/kill -KILL $MAINPID
+Type=simple
+KillMode=control-group
+Restart=on-failure
+RestartSec=15s
+
+[Install]
+WantedBy=multi-user.target

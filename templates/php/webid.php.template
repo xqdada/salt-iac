@@ -1,0 +1,65 @@
+<?php
+$http_server_id = {{ http_server_id }};
+$http_server_type = "{{ http_server_type }}";  //main server:MAIN; web server:WEB;p2p server:P2P;app server:APP
+$http_server_area = "{{ http_server_area }}";
+$http_support_ssl = false;
+$http_support_http2 = true;
+
+//更新token关系场景类型
+//device发起
+//绑定
+$bind_user = "bindUser";
+$bind_req = "bindReq";
+//client发起
+//添加分享设备
+$add_share_device = "addShareDevice";
+//账号密码、设备ID添加
+$ajax_add_device = "ajaxAddDevice";
+//设备删除
+$ajax_delete_device = "ajaxDeleteDevice";
+//设备解绑
+$dev_unbind = "devUnbind";
+//设备分享权限的修改
+$modify_share_pers = "modifySharePers";
+//删除分享设备
+$delete_share_device = "deleteShareDevice";
+//设备转移
+$transfer_device = "transferDevice";
+
+//device操作更新token关系场景请求路径
+$update_token_request_by_device = "/endpoint/update/original/token/by/device";
+//client操作更新token关系场景请求路径
+$update_token_request_by_client = "/update/original/token/by/client";
+
+//请求参数类型
+$device_sn_flag = "deviceSn";
+$device_id_flag = "deviceId";
+
+//结束托管
+$finish_trusteeship_by_device_id = "/endpoint/engineer/trusteeship/finish/by/device_id";
+$finish_trusteeship_by_device_sn = "/endpoint/engineer/trusteeship/finish/by/device_sn";
+//设备绑定触发结束托管
+$finish_trusteeship_by_device_id_with_device_bind = "/endpoint/engineer/trusteeship/finish/by/device_id/with/device/bind";
+
+//更新消息中心推送token请求路径
+$update_sms_token = "/push/relation/update";
+//刪除消息中心推送token请求路径
+$delete_sms_token = "/push/relation/delete";
+
+//客户端子系统服务对接地址
+$client_server_domain = 'http://micro-client.seetong.com';
+//设备子系统服务对接地址
+$device_server_domain = 'http://micro-device.seetong.com';
+//增值服务商城服务对接地址
+$mall_server_domain = 'http://micro-mall.seetong.com';
+//端侧算法服务对接地址
+$algorithm_server_domain = 'http://micro-algorithm.seetong.com';
+//消息中心服务对接地址
+$sms_center_server_domain = 'http://micro-sms.seetong.com';
+//crm服务对接地址
+$crm_server_domain = 'http://micro-crm.seetong.com';
+
+//统一尤为尔转发到商城服务
+$http_server_mall_gateway = $mall_server_domain . "/youweier/api/deviceApi";
+
+?>

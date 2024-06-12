@@ -1,0 +1,39 @@
+<?php
+$GLOBALS['cfg_dbhost'] = '{{ pillar['DB_HOST'] }}';
+$GLOBALS['cfg_dbhost_read'] = '{{ pillar['DB_HOST'] }}';
+$GLOBALS['cfg_dbuser'] = '{{ pillar['DB_USER'] }}';
+$GLOBALS['cfg_dbpwd'] = '{{ pillar['DB_PASS'] }}';
+$GLOBALS['cfg_dbname'] = 'cloudhost';
+$GLOBALS['cfg_dbport'] = '{{ pillar['DB_PORT'] }}';
+$GLOBALS['cfg_savesqllog'] = false;
+$GLOBALS['cfg_allow_onlyread']=false;
+$GLOBALS['cfg_dbhost_onlyread'] = '{{ pillar['DB_HOST'] }}';
+$GLOBALS['local_dbhost_readonly'] = '{{ pillar['DB_HOST'] }}';
+$GLOBALS['local_dbport_readonly'] = '{{ pillar['DB_PORT'] }}';
+$GLOBALS['local_dbuser_readonly'] = '{{ pillar['DB_USER'] }}';
+$GLOBALS['local_dbpwd_readonly'] = '{{ pillar['DB_PASS'] }}';
+$GLOBALS['local_dbhost'] = '{{ pillar['DB_HOST'] }}';
+$GLOBALS['local_dbport'] = '{{ pillar['DB_PORT'] }}';
+$GLOBALS['local_dbname'] = 'cloudhost';
+$GLOBALS['local_dbuser'] = '{{ pillar['DB_USER'] }}';
+$GLOBALS['local_dbpwd'] = '{{ pillar['DB_PASS'] }}';
+$GLOBALS['info_dbhost'] = '{{ pillar['DB_HOST'] }}';
+$GLOBALS['info_dbuser'] = '{{ pillar['DB_USER'] }}';
+$GLOBALS['info_dbpwd'] = '{{ pillar['DB_PASS'] }}';
+$GLOBALS['info_dbname'] = 'cloudinfo';
+$GLOBALS['info_dbport'] = '{{ pillar['DB_PORT'] }}';
+$GLOBALS['log_dbhost'] = '{{ pillar['DB_HOST'] }}';
+$GLOBALS['log_dbuser'] = '{{ pillar['DB_USER'] }}';
+$GLOBALS['log_dbpwd'] = '{{ pillar['DB_PASS'] }}';
+$GLOBALS['log_dbname'] = 'cloudhost';
+$GLOBALS['log_dbport'] = '{{ pillar['DB_PORT'] }}';
+$GLOBALS['push_dbhost'] = '{{ pillar['DB_HOST'] }}';
+$GLOBALS['push_dbuser'] = '{{ pillar['DB_USER'] }}';
+$GLOBALS['push_dbpwd'] = '{{ pillar['DB_PASS'] }}';
+$GLOBALS['push_dbname'] = 'cloudpush';
+$GLOBALS['push_dbport'] = '{{ pillar['DB_PORT'] }}';
+$GLOBALS['cfg_enable_log'] = false;
+$GLOBALS['write_sensors_data_file'] = true;
+
+?>
+
